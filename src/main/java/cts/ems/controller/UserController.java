@@ -17,7 +17,7 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-	@GetMapping("/")
+	@GetMapping("/welcome")
 	public String getMethodName() {
 		return new String("/ end point welcome");
 	}
