@@ -17,6 +17,11 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	@GetMapping("/")
+	public String getMethodName() {
+		return new String("/ end point welcome");
+	}
+	
 	
 	@PostMapping("/register")
 	public User userRegistration(@RequestBody User user) {
