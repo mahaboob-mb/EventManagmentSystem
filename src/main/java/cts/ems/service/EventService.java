@@ -1,7 +1,8 @@
 package cts.ems.service;
 
 import java.util.List;
-import cts.ems.entity.Event;
+
+import cts.ems.dto.Event;
  
 
 public interface EventService {

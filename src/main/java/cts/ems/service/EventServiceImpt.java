@@ -5,7 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import cts.ems.entity.Event;
+
+import cts.ems.dto.Event;
 import cts.ems.repository.EventRepository;
 
 
@@ -16,9 +17,9 @@ public class EventServiceImpt implements EventService{
 	EventRepository eventrepo;
 	
 	public Event addEvent(Event event) {
-		System.out.println("Service layer - Add event - method");
-		Event event1 = eventrepo.save(event);
-		return event1;
+	
+		return eventrepo.save(event);
+		
 	}
 	
 	public List<Event> getAllEvent() {

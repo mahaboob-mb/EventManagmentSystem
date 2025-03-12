@@ -1,4 +1,4 @@
-package cts.ems.entity;
+package cts.ems.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,14 +12,6 @@ public class User {
 	private String password;
 	private long contactNumber;
 	
-//	public User(int userID, String name, String email, String password, long contactNumber) {
-//		super();
-//		this.userID = userID;
-//		this.name = name;
-//		this.email = email;
-//		this.password = password;
-//		this.contactNumber = contactNumber;
-//	}
 	@Override
 	public String toString() {
 		return "User [userID=" + userID + ", name=" + name + ", email=" + email + ", password=" + password

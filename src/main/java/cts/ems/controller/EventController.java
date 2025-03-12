@@ -8,38 +8,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import cts.ems.entity.Event;
+import cts.ems.dto.Event;
 import cts.ems.service.EventService;
 
 @RestController
+@RequestMapping("/event-api")
 public class EventController {
 	
 	@Autowired
 	EventService eventService;
 	
-//	@GetMapping("/openform")
-//	@ResponseBody
-//	public String openForm() {
-//		return "openform";
-//	}
-	
-	@PostMapping("/addevent")
-	public Event addEvent(@RequestBody Event event) {
-		System.out.println("Event");
-		Event event1 = eventService.addEvent(event);
-		return event1;
+	@PostMapping("/create")
+	public Event addEvent(@RequestBody Event event) {		
+		return eventService.addEvent(event);
 	}
 	
-	@GetMapping("/allevents")
+	@GetMapping("/displayall")
 	public List<Event> getAllEvent(){
 		List<Event> events = eventService.getAllEvent();
 		return events;
 	}
 	
-	@PostMapping("/updateevent")
+	@PostMapping("/update")
 	public Event updateEvent(@RequestBody Event event) {
 		System.out.println("Event");
 		Event event1 = eventService.addEvent(event);
