@@ -6,9 +6,10 @@ import cts.ems.dto.Ticket;
 
 public interface TicketService {
 	
-	public Ticket bookTicket( Ticket ticket);
-	public List<Ticket> viewTickets();
-	public String cencelTicket(int ticketID);
-	public List<Ticket> getAllByEventID(int eventID);
-	public List<Ticket> getAllByUserID(int userID);
+	Ticket bookTicket(Ticket ticket);
+    List<Ticket> viewTickets();
+    String cancelTicket(long ticketID);  
+    List<Ticket> getAllByEventID(long eventID);
+    List<Ticket> getAllByUserID(long userID);
+    public List<Ticket> viewCancelledTickets() ;
 }

@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 import cts.ems.dto.Ticket;
 
 @Repository
-public interface TicketRepository extends JpaRepository<Ticket, Integer> {
-	
-	List<Ticket> findAllByEventID(int eventID);
-	List<Ticket> findAllByUserID(int userID);
+public interface TicketRepository extends JpaRepository<Ticket, Long> {  // Change Integer to Long
+	// Ensure the field name matches
+    //void deleteByTicketID(long ticketID);
+    List<Ticket> findAllByEventid(long eventid);
+    List<Ticket> findAllByUserid(long userid);
+    List<Ticket> findByStatus(String status); 
 }

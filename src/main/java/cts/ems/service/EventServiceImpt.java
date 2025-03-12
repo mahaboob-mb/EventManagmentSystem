@@ -48,6 +48,7 @@ public class EventServiceImpt implements EventService{
 		return "Wrong eventID";
 		
 	}
+	//how many event they create using userid
 }
 
 

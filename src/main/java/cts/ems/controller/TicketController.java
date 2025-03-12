@@ -23,38 +23,39 @@ import cts.ems.service.TicketService;
 public class TicketController {
 	
 	@Autowired
-	TicketService ticketService;
-	
-	@PostMapping("/book")
-	public Ticket bookTicket(@RequestBody Ticket ticket) { 
-		Ticket ticket1 = ticketService.bookTicket(ticket);
-		return ticket1;	
-	}
-	
-	@GetMapping("/view")
-	public List<Ticket> viewTickets() {
-		List<Ticket> ticket = ticketService.viewTickets();
-		return ticket;
-	}
-	
-	@DeleteMapping("/cencel/{ticketID}")
-	public String cencelTicket(@PathVariable int ticketID) {
-		String msg = ticketService.cencelTicket(ticketID);
-		return msg;
-	}
-	
-	@GetMapping("/getallby/{eventID}")
-	public ResponseEntity<Ticket> getAllByEventID(@PathVariable int eventID){
-		List<Ticket> tickets = ticketService.getAllByEventID(eventID);
-		ResponseEntity<Ticket> responseEntity = new ResponseEntity(tickets, HttpStatus.NOT_FOUND);
-		return responseEntity;
-	}
-	
-	@GetMapping("/getallby/{userID}")
-	public List<Ticket> getAllByUserID(@PathVariable int userID){
-		return ticketService.getAllByEventID(userID);
-	}
-
+    TicketService ticketService;
+    
+    @PostMapping("/book")
+    public Ticket bookTicket(@RequestBody Ticket ticket) { 
+        return ticketService.bookTicket(ticket);    
+    }
+    
+    @GetMapping("/view")
+    public List<Ticket> viewTickets() {
+        return ticketService.viewTickets();
+    }
+    
+    @DeleteMapping("/cancel/{ticketID}")  // Corrected spelling from cencel to cancel
+    public String cancelTicket(@PathVariable long ticketID) {
+        return ticketService.cancelTicket(ticketID);
+    }
+    
+    @GetMapping("/getallby/event/{eventID}")
+    public ResponseEntity<List<Ticket>> getAllByEventID(@PathVariable long eventID) {
+        List<Ticket> tickets = ticketService.getAllByEventID(eventID);
+        return new ResponseEntity<>(tickets, HttpStatus.OK);
+    }
+    
+    @GetMapping("/getallby/user/{userID}")
+    public ResponseEntity<List<Ticket>> getAllByUserID(@PathVariable long userID) {
+        List<Ticket> tickets = ticketService.getAllByUserID(userID);
+        return new ResponseEntity<>(tickets, HttpStatus.OK);
+    }
+    
+    @GetMapping("/view/cancelled")
+    public List<Ticket> viewCancelledTickets() {
+        return ticketService.viewCancelledTickets();
+    }
 }
 
 

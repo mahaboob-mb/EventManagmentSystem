@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class NotificationServiceImpt {
+public class NotificationServiceImpt implements NotificationService {
     @Autowired
     private NotificationRepository notificationRepository;
 

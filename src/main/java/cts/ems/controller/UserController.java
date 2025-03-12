@@ -22,13 +22,13 @@ public class UserController {
 	UserService userService;
 	
 	
-	@PostMapping("/register")
+	@PostMapping("/register")//(already exist email,contact check)
 	public User userRegistration(@RequestBody User user) {
 		User user1 = userService.userRegistration(user);
 		return user1;
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("/login")//()
 	public User login(@PathVariable String email, @PathVariable String password) {
 		User user = null;
 		user.setEmail(email);
